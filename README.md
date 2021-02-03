@@ -13,7 +13,7 @@ It reads the .env.example file and makes suggestions to fill your .env according
 Start by requiring the package with composer
 
 ```
-composer require eli/laravel-env-sync
+composer require eliurkis/laravel-env-sync
 ```
 
 
