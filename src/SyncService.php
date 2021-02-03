@@ -6,7 +6,7 @@ use Eli\LaravelEnvSync\Reader\ReaderInterface;
 
 class SyncService
 {
-    private ReaderInterface $reader;
+    private $reader;
 
     public function __construct(ReaderInterface $reader)
     {
@@ -28,7 +28,9 @@ class SyncService
 
         $diffKeys = array_diff(array_keys($sourceValues), array_keys($destinationValues));
 
-        return array_filter($sourceValues, static fn($key) => in_array($key, $diffKeys, true), ARRAY_FILTER_USE_KEY);
+        return array_filter($sourceValues, static function ($key) use ($diffKeys) {
+            return in_array($key, $diffKeys, true);
+        }, ARRAY_FILTER_USE_KEY);
     }
 
     /**
