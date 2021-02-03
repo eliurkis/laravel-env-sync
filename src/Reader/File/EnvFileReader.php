@@ -1,0 +1,28 @@
+<?php
+
+namespace Eli\LaravelEnvSync\Reader\File;
+
+use Dotenv\Dotenv;
+use Eli\LaravelEnvSync\Reader\ReaderInterface;
+
+class EnvFileReader implements ReaderInterface
+{
+    /**
+     * Load `.env` file in given directory.
+     *
+     * @param null $resource
+     * @return array
+     * @throws FileRequired
+     */
+    public function read($resource = null)
+    {
+        if ($resource === null) {
+            throw new FileRequired();
+        }
+
+        $dir = dirname($resource);
+        $name = basename($resource);
+
+        return Dotenv::createMutable($dir, $name)->load();
+    }
+}

@@ -1,0 +1,46 @@
+{
+  "name": "eliurkis/laravel-env-sync",
+  "description": "A package that makes sure that your .env file is in sync with your .env.example",
+  "type": "library",
+  "autoload": {
+    "psr-4": {
+      "Eli\\LaravelEnvSync\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Eli\\LaravelEnvSync\\Tests\\": "tests/"
+    }
+  },
+  "require": {
+    "php": ">=7.3",
+    "vlucas/phpdotenv": "^5",
+    "illuminate/console": "^7|^8",
+    "illuminate/support": "^7|^8",
+    "illuminate/events": "^7|^8"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9",
+    "mikey179/vfsstream": "^1",
+    "mockery/mockery": "^1",
+    "orchestra/testbench": "^6"
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Eliurkis Diaz",
+      "email": "eliurkis@gmail.com"
+    }
+  ],
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Eli\\LaravelEnvSync\\EnvSyncServiceProvider"
+      ]
+    },
+    "branch-alias": {
+        "dev-master": "0.1.x-dev"
+    }
+  },
+  "minimum-stability": "stable"
+}
