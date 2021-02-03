@@ -25,7 +25,7 @@ class CheckCommand extends BaseCommand
      */
     protected $description = 'Check if your envs files are in sync';
 
-    private SyncService $sync;
+    private $sync;
 
     /**
      * Create a new command instance.

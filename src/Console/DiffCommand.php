@@ -20,9 +20,9 @@ class DiffCommand extends BaseCommand
      */
     protected $description = 'Show the difference between env files';
 
-    private ReaderInterface $reader;
+    private $reader;
 
-    private int $returnCode = 0;
+    private $returnCode = 0;
 
     /**
      * Create a new command instance.

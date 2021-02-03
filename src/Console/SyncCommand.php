@@ -25,8 +25,8 @@ class SyncCommand extends BaseCommand
      */
     protected $description = 'Synchronise the .env & .env.example files.';
 
-    private SyncService $sync;
-    private WriterInterface $writer;
+    private $sync;
+    private $writer;
 
     /**
      * Create a new command instance.
@@ -77,7 +77,9 @@ class SyncCommand extends BaseCommand
             if ($action === self::CHANGE) {
                 $diff = $this
                     ->output
-                    ->ask(sprintf("Please choose a value for '%s'", $key, $diff), null, fn($value) => $value);
+                    ->ask(sprintf("Please choose a value for '%s'", $key, $diff), null, function ($value) {
+                        return $value;
+                    });
             }
 
             $this->writer->append($dest, $key, $diff);
